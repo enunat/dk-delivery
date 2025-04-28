@@ -148,6 +148,27 @@ const FeaturedSection = ({
     }
   }, []);
 
+  // Fetch featured restaurants from API
+  useEffect(() => {
+    const fetchFeaturedRestaurants = async () => {
+      try {
+        // Try to fetch from API
+        const data = await restaurantApi.getFeaturedRestaurants();
+        if (data && data.length > 0) {
+          setRestaurants(data);
+        }
+      } catch (error) {
+        console.error("Error fetching featured restaurants:", error);
+        // Keep using default restaurants if API fails
+      }
+    };
+
+    // Only fetch if we're not in a storyboard/test environment
+    if (import.meta.env.MODE === "production") {
+      fetchFeaturedRestaurants();
+    }
+  }, []);
+
   // Auto-slide functionality
   useEffect(() => {
     const startAutoSlide = () => {

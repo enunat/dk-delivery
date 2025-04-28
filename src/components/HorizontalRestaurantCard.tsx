@@ -1,6 +1,6 @@
 import React from "react";
-import { Card, CardContent } from "../components/ui/card";
-import { Badge } from "../components/ui/badge";
+import { Card, CardContent } from "./ui/card";
+import { Badge } from "./ui/badge";
 import { Star, Clock, DollarSign, ShoppingCart, Heart } from "lucide-react";
 import { Button } from "./ui/button";
 
